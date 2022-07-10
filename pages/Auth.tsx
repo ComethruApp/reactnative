@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { StyleSheet, Button, View, SafeAreaView, Text } from 'react-native';
+import {
+    StyleSheet,
+    Button,
+    Image,
+    View,
+    SafeAreaView,
+    Text,
+    TextInput,
+} from 'react-native';
 
 
 export default function Auth() {
@@ -8,7 +16,8 @@ export default function Auth() {
 
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={require('./assets/img/logo/logo.png')} />
+            <Text>Hello!</Text>
+            <Image style={styles.image} source={require('../assets/img/logo/logo.png')} />
 
             <TextInput
                 style={styles.TextInput}
