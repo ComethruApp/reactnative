@@ -5,9 +5,9 @@ import {
     Image,
     View,
     SafeAreaView,
-    Text,
     TextInput,
 } from 'react-native';
+import { AppText } from '../components';
 
 
 export default function Auth() {
@@ -16,6 +16,7 @@ export default function Auth() {
 
     return (
         <View style={styles.container}>
+            <AppText style={styles.text}>Hello</AppText>
             <Text>Hello!</Text>
             <Image style={styles.image} source={require('../assets/img/logo/logo.png')} />
 
@@ -41,7 +42,6 @@ export default function Auth() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },

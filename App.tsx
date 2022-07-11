@@ -1,13 +1,17 @@
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
-import Auth from './pages/Auth';
+import { StyleSheet, View, SafeAreaView } from 'react-native';
+import { BrowserRouter, Router, Route, Redirect, Switch } from 'react-router-dom';
+
 import { Colors } from './colors';
+import { Auth } from './pages';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Hello</Text>
-    </View>
-  );
+    return (
+        <Router>
+            <View style={styles.container}>
+                <Route path='/' component={Auth} />
+            </View>
+        </Router>
+    );
 }
 
 const styles = StyleSheet.create({
