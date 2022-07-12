@@ -1,29 +1,39 @@
 import { StyleSheet, View, SafeAreaView } from 'react-native';
-import { BrowserRouter, Router, Route, Redirect, Switch } from 'react-router-dom';
+import { NativeRouter, Routes, Route } from 'react-router-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { Colors } from './colors';
 import { Auth } from './pages';
+import { AppText } from './components';
+
+console.log(NativeRouter);
+console.log(Route);
 
 export default function App() {
     return (
-        <Router>
+        <SafeAreaProvider>
             <View style={styles.container}>
-                <Route path='/' component={Auth} />
+                <AppText>Hello</AppText>
+                <NativeRouter>
+                    <Routes>
+                        <Route exact path='/' element={<Auth />} />
+                    </Routes>
+                </NativeRouter>
+                <AppText style={styles.text}>Hello2</AppText>
             </View>
-        </Router>
+        </SafeAreaProvider>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        flexDirection: 'column',
-        width: '100%',
-        height: '100%',
         backgroundColor: Colors.background,
         color: Colors.foreground,
         alignItems: 'center',
         justifyContent: 'center',
+        borderStyle: 'solid',
+        borderWidth: '1px',
+        borderColor: 'red',
     },
     text: {
         color: Colors.foreground,
