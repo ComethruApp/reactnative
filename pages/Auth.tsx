@@ -7,7 +7,7 @@ import {
     SafeAreaView,
     TextInput,
 } from 'react-native';
-import { AppText } from '../components';
+import { AppText, AppTextInput } from '../components';
 import { Colors } from '../colors';
 
 
@@ -17,19 +17,18 @@ export default function Auth() {
 
     return (
         <View style={styles.container}>
-            <AppText style={styles.text}>Hello</AppText>
             <Image
                 resizeMode='contain'
                 style={styles.image}
                 source={require('../assets/img/logo/logo.png')}
             />
 
-            <TextInput
+            <AppTextInput
                 style={styles.input}
                 placeholder='you@school.edu'
                 onChangeText={(email) => setEmail(email)}
             />
-            <TextInput
+            <AppTextInput
                 style={styles.input}
                 placeholder='Password'
                 secureTextEntry={true}
@@ -39,8 +38,6 @@ export default function Auth() {
             <Button
                 title='Login'
             />
-
-            <AppText>Hello</AppText>
         </View>
     );
 }
@@ -54,10 +51,17 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         padding: 20,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
     image: {
         width: '100%',
+        height: undefined,
+        // TODO: PLEASE GOD NO WHY
+        aspectRatio: 8354 / 1506,
     },
 
     text: {
