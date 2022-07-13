@@ -8,6 +8,7 @@ import {
     TextInput,
 } from 'react-native';
 import { AppText } from '../components';
+import { Colors } from '../colors';
 
 
 export default function Auth() {
@@ -17,16 +18,19 @@ export default function Auth() {
     return (
         <View style={styles.container}>
             <AppText style={styles.text}>Hello</AppText>
-            <Text>Hello!</Text>
-            <Image style={styles.image} source={require('../assets/img/logo/logo.png')} />
+            <Image
+                resizeMode='contain'
+                style={styles.image}
+                source={require('../assets/img/logo/logo.png')}
+            />
 
             <TextInput
-                style={styles.TextInput}
+                style={styles.input}
                 placeholder='you@school.edu'
                 onChangeText={(email) => setEmail(email)}
             />
             <TextInput
-                style={styles.TextInput}
+                style={styles.input}
                 placeholder='Password'
                 secureTextEntry={true}
                 onChangeText={(password) => setPassword(password)}
@@ -35,50 +39,31 @@ export default function Auth() {
             <Button
                 title='Login'
             />
+
+            <AppText>Hello</AppText>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
+    container: {
+        background: Colors.danger,
+        borderStyle: 'dotted',
+        borderWidth: '2px',
+        borderColor: 'blue',
+        width: '100%',
+        height: '100%',
+        padding: 20,
+    },
 
-  image: {
-    marginBottom: 40,
-  },
+    image: {
+        width: '100%',
+    },
 
-  inputView: {
-    backgroundColor: "#FFC0CB",
-    borderRadius: 30,
-    width: "70%",
-    height: 45,
-    marginBottom: 20,
+    text: {
+        color: 'white',
+    },
 
-    alignItems: "center",
-  },
-
-  TextInput: {
-    height: 50,
-    flex: 1,
-    padding: 10,
-    marginLeft: 20,
-  },
-
-  forgot_button: {
-    height: 30,
-    marginBottom: 30,
-  },
-
-  loginBtn: {
-    width: "80%",
-    borderRadius: 25,
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 40,
-    backgroundColor: "#FF1493",
-  },
+    input: {
+    },
 });
