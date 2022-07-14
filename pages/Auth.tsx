@@ -7,7 +7,11 @@ import {
     SafeAreaView,
     TextInput,
 } from 'react-native';
-import { AppText, AppTextInput } from '../components';
+import {
+    AppText,
+    AppTextInput,
+    AppButton,
+} from '../components';
 import { Colors } from '../colors';
 
 
@@ -35,7 +39,7 @@ export default function Auth() {
                 onChangeText={(password) => setPassword(password)}
             />
 
-            <Button
+            <AppButton
                 title='Login'
             />
         </View>
@@ -45,9 +49,6 @@ export default function Auth() {
 const styles = StyleSheet.create({
     container: {
         background: Colors.danger,
-        borderStyle: 'dotted',
-        borderWidth: '2px',
-        borderColor: 'blue',
         width: '100%',
         height: '100%',
         padding: 20,
@@ -62,6 +63,8 @@ const styles = StyleSheet.create({
         height: undefined,
         // TODO: PLEASE GOD NO WHY
         aspectRatio: 8354 / 1506,
+
+        marginBottom: 10,
     },
 
     text: {

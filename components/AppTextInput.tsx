@@ -11,6 +11,7 @@ export default class AppTextInput extends Component {
     render() {
         return (
             <TextInput
+                placeholderTextColor={Colors.foregroundShade}
                 style={[this.props.style, styles.component]}
                 {...this.getProps()}>
                 {this.props.children}
@@ -24,8 +25,10 @@ const styles = StyleSheet.create({
     component: {
         color: Colors.foreground,
         backgroundColor: Colors.backgroundTint,
-        placeholderTextColor: Colors.foregroundShade,
-
         width: '100%',
+        padding: 15,
+        marginBottom: 5,
+        borderRadius: 25,
+        fontSize: 18,
     },
 });
