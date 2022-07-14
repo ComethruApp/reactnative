@@ -6,9 +6,6 @@ import { Colors } from './colors';
 import { Auth } from './pages';
 import { AppText } from './components';
 
-console.log(NativeRouter);
-console.log(Route);
-
 export default function App() {
     return (
         <SafeAreaProvider>
@@ -31,9 +28,6 @@ const styles = StyleSheet.create({
         color: Colors.foreground,
         alignItems: 'center',
         justifyContent: 'center',
-        borderStyle: 'solid',
-        borderWidth: '1px',
-        borderColor: 'red',
     },
     text: {
         color: Colors.foreground,
