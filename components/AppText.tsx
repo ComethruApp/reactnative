@@ -23,5 +23,6 @@ export default class AppText extends Component {
 const styles = StyleSheet.create({
     component: {
         color: Colors.foreground,
+        fontSize: 18,
     },
 });

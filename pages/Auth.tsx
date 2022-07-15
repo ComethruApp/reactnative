@@ -39,9 +39,7 @@ export default function Auth() {
                 onChangeText={(password) => setPassword(password)}
             />
 
-            <AppButton
-                title='Login'
-            />
+            <AppButton>Login</AppButton>
         </View>
     );
 }
