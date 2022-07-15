@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import { Button, StyleSheet } from 'react-native';
+import { Button, TouchableOpacity, StyleSheet } from 'react-native';
 import { Colors } from '../colors';
+import AppText from './AppText';
 
 export default class AppButton extends Component {
     getProps() {
@@ -10,11 +11,14 @@ export default class AppButton extends Component {
 
     render() {
         return (
-            <Button
+            <TouchableOpacity
                 style={[this.props.style, styles.component]}
-                {...this.getProps()}>
-                {this.props.children}
-            </Button>
+                {...this.getProps()}
+            >
+                <AppText style={styles.text}>
+                    {this.props.children}
+                </AppText>
+            </TouchableOpacity>
         );
     }
 }
@@ -23,11 +27,16 @@ export default class AppButton extends Component {
 const styles = StyleSheet.create({
     component: {
         color: Colors.foreground,
-        backgroundColor: Colors.primary,
         width: '100%',
-        padding: 15,
         marginBottom: 5,
+    },
+
+    text: {
+        width: '100%',
+        backgroundColor: Colors.primary,
+        padding: 15,
+        textAlign: 'center',
         borderRadius: 25,
-        fontSize: 18,
+        overflow: 'hidden',
     },
 });
