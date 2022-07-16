@@ -24,6 +24,6 @@ export default class WebLink extends Component {
 
 const styles = StyleSheet.create({
     component: {
-        textDecoration: 'underline',
+        textDecorationLine: 'underline',
     },
 });
