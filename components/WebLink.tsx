@@ -3,7 +3,7 @@ import { StyleSheet, Linking } from 'react-native';
 import { Colors } from '../colors';
 import AppText from './AppText';
 
-export default class AppTextInput extends Component {
+export default class WebLink extends Component {
     getProps() {
         const { style, url, ...props } = this.props;
         return props;
