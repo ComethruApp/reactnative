@@ -38,5 +38,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         borderRadius: 25,
         overflow: 'hidden',
+        textTransform: 'uppercase',
     },
 });

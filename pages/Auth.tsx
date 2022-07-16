@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
     StyleSheet,
     Button,
-    Image,
     View,
     SafeAreaView,
     TextInput,
@@ -11,6 +10,8 @@ import {
     AppText,
     AppTextInput,
     AppButton,
+    Link,
+    Logo,
 } from '../components';
 import { Colors } from '../colors';
 
@@ -21,11 +22,7 @@ export default function Auth() {
 
     return (
         <View style={styles.container}>
-            <Image
-                resizeMode='contain'
-                style={styles.image}
-                source={require('../assets/img/logo/logo.png')}
-            />
+            <Logo />
 
             <AppTextInput
                 style={styles.input}
@@ -56,14 +53,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
-    image: {
-        width: '100%',
-        height: undefined,
-        // TODO: PLEASE GOD NO WHY
-        aspectRatio: 8354 / 1506,
-
-        marginBottom: 10,
-    },
 
     text: {
         color: 'white',
