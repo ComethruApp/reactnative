@@ -24,5 +24,6 @@ const styles = StyleSheet.create({
     component: {
         color: Colors.foreground,
         fontSize: 18,
+        fontFamily: 'JosefinSans-Regular',
     },
 });
