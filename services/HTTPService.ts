@@ -27,4 +27,4 @@ class HTTPService {
     }
 }
 
-export default httpService = HTTPService();
+export default httpService = new HTTPService();
