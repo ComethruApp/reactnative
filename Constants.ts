@@ -1,4 +1,4 @@
-export const Constants: {
+const Constants = {
     HOST: 'https://api.comethru.io',
 //    HOST: 'http://localhost:5000',
 
@@ -6,3 +6,4 @@ export const Constants: {
     GOOGLE_PROJECT_NUMBER: 'PLACEHOLDER',
 };
 
+export default Constants;
