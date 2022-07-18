@@ -4,13 +4,13 @@ class HTTPService {
 
     get(path: string) {
         //return fetch(token => this.httpClient.get(this.ROOT + path, this.ops(token)));
-        return fetch(this.HOST+ '/' + path, {
+        return fetch(Constants.HOST+ '/' + path, {
             method: 'GET',
         });
     }
     post(path: string, data: any) {
         //return fetch(token => this.httpClient.post(this.ROOT + path, data, this.ops(token)));
-        return fetch(this.HOST + '/' + path, {
+        return fetch(Constants.HOST + '/' + path, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
