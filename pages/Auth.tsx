@@ -6,26 +6,89 @@ import {
     SafeAreaView,
     TextInput,
     Link,
+    Alert,
+    KeyboardAvoidingView,
 } from 'react-native';
+import { useNavigate } from 'react-router-native';
+
 import {
     AppText,
     AppTextInput,
     AppButton,
     WebLink,
     Logo,
+    LoadingModal,
 } from '../components';
+import {
+    AuthService,
+} from '../services';
 import { Colors } from '../colors';
 
 
 export default function Auth() {
+    let navigate = useNavigate();
+
     const [registering, setRegistering] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [year, setYear] = useState('');
     const [password, setPassword] = useState('');
 
+    const resetFields = () => {
+        setName('');
+        setEmail('');
+        setYear('');
+        setPassword('');
+    };
+
+    const login = () => {
+        setLoading(true);
+        AuthService.login({
+            email: email,
+            password: password,
+        })
+        .then((response) => {
+            resetFields();
+            setLoading(false);
+            navigate('/tabs');
+        }).catch((response) => {
+            setLoading(false);
+            Alert.alert(
+                'Error',
+                response.error.message,
+                [{ text: 'OK' }],
+            );
+        });
+    };
+
+    const register = () => {
+        setLoading(true);
+        AuthService.register({
+            name: name,
+            email: email,
+            year: year,
+            password: password,
+        }).then((response) => {
+            resetFields();
+            setLoading(false);
+            navigate('/tabs');
+        }).catch((response) => {
+            setLoading(false);
+            Alert.alert(
+                'Error',
+                response.error.message,
+                [{ text: 'OK' }],
+            );
+        });
+    };
+
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView
+            behavior='padding'
+            style={styles.container}>
+
             <Logo />
 
             {registering &&
@@ -53,7 +116,7 @@ export default function Auth() {
 
             {!registering &&
             <>
-                <AppButton>Login</AppButton>
+                <AppButton onPress={login}>Login</AppButton>
 
                 <View style={styles.textGroup}>
                     <AppText style={styles.text}>Don't have an account?</AppText>
@@ -69,7 +132,7 @@ export default function Auth() {
             {registering &&
             <>
                 <AppText style={[styles.textGroup, styles.text]}>By registering, you agree to the <WebLink url='https://comethru.io/tos'>Terms of Service</WebLink> and <WebLink url='https://comethru.io/privacypolicy'>Privacy Policy</WebLink>.</AppText>
-                <AppButton>Register</AppButton>
+                <AppButton onPress={register}>Register</AppButton>
 
                 <View style={styles.textGroup}>
                     <AppText>Already have an account?</AppText>
@@ -81,7 +144,11 @@ export default function Auth() {
                     </AppText>
                 </View>
             </>}
-        </View>
+
+            {loading &&
+            <LoadingModal message={registering ? 'Logging in...' : 'Creating your account...'} />
+            }
+        </KeyboardAvoidingView>
     );
 }
 
